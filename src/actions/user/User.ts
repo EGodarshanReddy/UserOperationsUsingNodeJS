@@ -2,7 +2,9 @@
 
 
 import { PrismaClient } from '@prisma/client';
-import { User } from '../../../shared/interfaces/user/User';
+
+
+import { User } from '../../../shared/interfaces/user/User.ts';
 
 
 const prisma = new PrismaClient();
@@ -61,5 +63,21 @@ export const getUserPhno = async (phno: string): Promise<User | null> => {
   } catch (error) {
     console.error('Error fetching user by mobile number:', error);
     return null;
+  }
+};
+
+export const updateUserdata = async (userId: string, data: Partial<User>): Promise<User> => {
+  try {
+    const updatedUser = await prisma.user.update({
+      where: {
+        id: userId,
+      },
+      data,
+    });
+    console.log('Updated user:', updatedUser);
+    return updatedUser;
+  } catch (error) {
+    console.error('Error updating user:', error);
+    throw new Error('Error updating user');
   }
 };
