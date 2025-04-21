@@ -2,13 +2,17 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import { loginWithOTP } from "../../../../../actions/user/Login.ts";
-import { validatePhoneNumber } from "../../../../../utils/UserValidations.ts";
+import { validatePhoneNumber } from "../../../../../utils/validations/UserValidations.ts";
 
 export async function POST(req: NextRequest, { params }: { params: { phno: string } }): Promise<NextResponse> {
 
     try {
         const Phone = params.phno;
         const isPhonumberIsValid = await validatePhoneNumber(Phone);
+
+        
+
+
         console.log('User ID:', Phone);
         const tokendata=await loginWithOTP(Phone);
         return NextResponse.json({ tokendata }, { status: 200 });
