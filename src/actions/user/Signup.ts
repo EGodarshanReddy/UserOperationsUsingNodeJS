@@ -1,0 +1,20 @@
+import { User } from "../../../shared/interfaces/user/User";
+import { createAccount } from "./User";
+
+
+
+export async function signup(user:User) 
+{
+    console.log("Starting sign up process");
+    console.log("User received for sign up:", user);
+    const createdUser =  await createAccount(user);
+
+    console.log("User creation result:", createdUser);
+
+    if(!createdUser){
+        console.error("Applicant creation failed");
+        throw new Error(`Applicant creation failed`);
+    }
+
+    return createdUser;
+}
