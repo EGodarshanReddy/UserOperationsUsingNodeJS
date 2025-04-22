@@ -1,5 +1,5 @@
-import { User } from "../../../shared/interfaces/user/User";
-import { createAccount } from "./User";
+import { User } from "../../../shared/interfaces/user/User.ts";
+import { createAccount } from "./User.ts";
 
 
 

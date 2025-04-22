@@ -1,5 +1,5 @@
-import { generateAccessAndRefreshTokens } from "../auth/Jwt";
-import {getUserPhno } from "./User";
+import { generateAccessAndRefreshTokens } from "../auth/Jwt.ts";
+import {getUserPhno } from "./User.ts";
 
 export  async function loginWithOTP(phno:string) 
 {
@@ -9,7 +9,7 @@ export  async function loginWithOTP(phno:string)
     }
 
     const user = await getUserPhno(phno);
-
+    
     if(!user)
     {
         return new Error("User not found");

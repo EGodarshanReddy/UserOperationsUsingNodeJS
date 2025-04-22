@@ -1,5 +1,5 @@
-import { User } from "../../../shared/interfaces/user/User";
-import { generateAccessToken, generateRefreshToken } from "./JwtRepo";
+import { User } from "../../../shared/interfaces/user/User.ts";
+import { generateAccessToken, generateRefreshToken } from "./JwtRepo.ts";
 
 
 export const generateAccessAndRefreshTokens = (user:User) => {

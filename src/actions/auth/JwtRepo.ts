@@ -12,3 +12,14 @@ export function generateAccessToken(user:User) {
     
     return refreshToken;
   }
+
+
+  export function verifyToken(token: string, secret: string): User | null {
+    try {
+      const decoded = jwt.verify(token, secret) as User;
+      return decoded;
+    } catch (error) {
+      console.error('Token verification failed:', error);
+      throw new Error('Token verification failed');
+    }
+  }

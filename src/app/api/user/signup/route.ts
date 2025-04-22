@@ -16,7 +16,6 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
         {
             return validate(parsedUser);
         }
-        
 
         
         console.log("User data parsed from request:", user);
@@ -25,9 +24,9 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
         console.log("New user created successfully:", newUser);
         
         console.log("Sign up process completed");
-        return NextResponse.json(newUser, { status: 201 });
+        return NextResponse.json(newUser, { status: 201 }as any);
     } catch (error) {
         console.error("Error encountered during sign up:", error);
-        return NextResponse.json({ error: error instanceof Error ? error.message : 'Error Creating user' }, { status: 500 });
+        return NextResponse.json({ error: error instanceof Error ? error.message : 'Error Creating user' }, { status: 500 }as any);
     }
 }

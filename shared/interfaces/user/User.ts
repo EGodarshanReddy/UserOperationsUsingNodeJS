@@ -4,6 +4,7 @@ export interface User
     fullName: string;
     fatherName?: string;
     age?: string;
+    role?: string;
     mobileNumber: string;
     alternateMobileNumber?: string;
     aadharNumber: string;
