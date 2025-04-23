@@ -11,10 +11,11 @@ export async function signup(user:User)
 
     console.log("User creation result:", createdUser);
 
-    if(!createdUser){
-        console.error("Applicant creation failed");
-        throw new Error(`Applicant creation failed`);
-    }
+    
+    // if(!createdUser){
+    //     console.error("Applicant creation failed");
+    //     throw new Error(`Applicant creation failed`);
+    // }
 
     return createdUser;
 }

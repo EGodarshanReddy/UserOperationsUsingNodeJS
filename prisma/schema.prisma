@@ -18,7 +18,7 @@ model User {
   id                    String   @id @default(uuid())
   fullName              String
   fatherName            String?  
-  age                   String?  
+  age                   Int?  
   role                  String   @default("user")
   mobileNumber          String
   alternateMobileNumber String?  

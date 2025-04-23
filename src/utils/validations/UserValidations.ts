@@ -1,4 +1,4 @@
-import { isValidPhoneNumber, parsePhoneNumberFromString } from 'libphonenumber-js';
+import { isValidPhoneNumber} from 'libphonenumber-js';
 
 export const validatePhoneNumber = (mobileNumber: string) => {
 

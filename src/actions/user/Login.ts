@@ -12,9 +12,8 @@ export  async function loginWithOTP(phno:string)
     
     if(!user)
     {
-        return new Error("User not found");
+        throw new Error("User not found wit the given phone number: "+phno);
     }
-
     const sessiondata= generateAccessAndRefreshTokens(user);
 
     if(!sessiondata)

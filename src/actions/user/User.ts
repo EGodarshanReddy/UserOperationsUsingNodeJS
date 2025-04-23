@@ -2,8 +2,6 @@
 
 
 import { PrismaClient } from '@prisma/client';
-
-
 import { User } from '../../../shared/interfaces/user/User.ts';
 
 
@@ -33,9 +31,8 @@ export const createAccount=async (user: User)=> {
     return createdUser;
   } catch (error) {
     console.error('Error creating user:', error);
-    return null;
+    throw new Error('Error creating user:'+ error)
   }
-
 }
 
 export const getUserById=async (userId: string)=> {
@@ -52,7 +49,7 @@ export const getUserById=async (userId: string)=> {
   }
 }
 
-export const getUserPhno = async (phno: string): Promise<any> => {
+export const getUserPhno = async (phno: string) => {
   try {
     const user = await prisma.user.findFirst({
       where: {
@@ -62,7 +59,7 @@ export const getUserPhno = async (phno: string): Promise<any> => {
     console.log('Fetched user by mobile number:', user);
     return user;
   } catch (error) {
-    console.error('Error fetching user by mobile number:', error);
+    console.error('Error fetching user by mobile number:', );
     throw new Error('Error fetching user by mobile number');
   }
 };
